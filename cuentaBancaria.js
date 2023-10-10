@@ -1,5 +1,5 @@
 var dom=document.querySelector('h2');
-var btn=document.getElementById('ingresa');
+var btn1=document.getElementById('ingresa');
 let cliente1={
     nombre: 'Ismael',
     apellido: 'Mor Mor',
@@ -24,7 +24,7 @@ var ingreso=0;
 switch (dni) {
     case cliente1.dni:
         dom.innerHTML=cliente1.nombre+'<br>'+cliente1.apellido+'<br>'+cliente1.cantidadDeDinero;
-        btn.addEventListener('click',function() { 
+        btn1.addEventListener('click',function() { 
             ingreso = Number(prompt('Introduce cantidad del ingreso'));
             cliente1.cantidadDeDinero += ingreso;
             dom.innerHTML=cliente1.nombre+'<br>'+cliente1.apellido+'<br>'+cliente1.cantidadDeDinero;
@@ -32,7 +32,7 @@ switch (dni) {
         break;
     case cliente2.dni:
         dom.innerHTML+=cliente2.nombre+'<br>'+cliente2.apellido+'<br>'+cliente2.cantidadDeDinero;
-        btn.addEventListener('click',function() { 
+        btn1.addEventListener('click',function() { 
             ingreso = Number(prompt('Introduce cantidad del ingreso'));
             cliente2.cantidadDeDinero += ingreso;
             dom.innerHTML=cliente2.nombre+'<br>'+cliente2.apellido+'<br>'+cliente2.cantidadDeDinero;
@@ -40,7 +40,7 @@ switch (dni) {
         break
     case cliente3.dni:
         dom.innerHTML+=cliente3.nombre+'<br>'+cliente3.apellido+'<br>'+cliente3.cantidadDeDinero;
-        btn.addEventListener('click',function() { 
+        btn1.addEventListener('click',function() { 
             ingreso = Number(prompt('Introduce cantidad del ingreso'));
             cliente3.cantidadDeDinero += ingreso;
             dom.innerHTML=cliente3.nombre+'<br>'+cliente3.apellido+'<br>'+cliente3.cantidadDeDinero;
