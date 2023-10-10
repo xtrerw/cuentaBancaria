@@ -9,34 +9,45 @@ let cliente1={
 let cliente2={
     nombre: 'Wei',
     apellido: 'Xu',
-    dni: 'I2342360H',
+    dni: '2',
     cantidadDeDinero: 5000,
 };
 let cliente3={
     nombre: 'Daza',
     apellido: 'Épico',
-    dni: 'P2331123H',
+    dni: '3',
     cantidadDeDinero: 6000,
 };
 
 let dni = prompt('Introduce DNI de usted, porfavor');
+var ingreso=0;
 switch (dni) {
     case cliente1.dni:
-        dom.innerHTML+=cliente1.nombre+'<br>'+cliente1.apellido+'<br>'+cliente1.cantidadDeDinero;
+        dom.innerHTML=cliente1.nombre+'<br>'+cliente1.apellido+'<br>'+cliente1.cantidadDeDinero;
+        btn.addEventListener('click',function() { 
+            ingreso = Number(prompt('Introduce cantidad del ingreso'));
+            cliente1.cantidadDeDinero += ingreso;
+            dom.innerHTML=cliente1.nombre+'<br>'+cliente1.apellido+'<br>'+cliente1.cantidadDeDinero;
+         })
         break;
     case cliente2.dni:
         dom.innerHTML+=cliente2.nombre+'<br>'+cliente2.apellido+'<br>'+cliente2.cantidadDeDinero;
+        btn.addEventListener('click',function() { 
+            ingreso = Number(prompt('Introduce cantidad del ingreso'));
+            cliente2.cantidadDeDinero += ingreso;
+            dom.innerHTML=cliente2.nombre+'<br>'+cliente2.apellido+'<br>'+cliente2.cantidadDeDinero;
+         })
         break
     case cliente3.dni:
         dom.innerHTML+=cliente3.nombre+'<br>'+cliente3.apellido+'<br>'+cliente3.cantidadDeDinero;
+        btn.addEventListener('click',function() { 
+            ingreso = Number(prompt('Introduce cantidad del ingreso'));
+            cliente3.cantidadDeDinero += ingreso;
+            dom.innerHTML=cliente3.nombre+'<br>'+cliente3.apellido+'<br>'+cliente3.cantidadDeDinero;
+         })
         break
     default:
         dom.innerHTML+="no existe este client";
         break;
 }
 
-function ingresa() {
-    let ingresa = prompt('Introduce cantidad del ingreso');
-    cliente1.cantidadDeDinero -= -ingresa;
-    dom.innerHTML+=cliente1.cantidadDeDinero;
- };
