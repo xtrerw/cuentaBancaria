@@ -1,4 +1,5 @@
-var dom=document.querySelector('h2');
+var dom1=document.querySelector('.informationDelCliente');
+var dom2=document.querySelector('.informationDeTodo');
 var btn1=document.getElementById('ingresar');
 var btn2=document.getElementById('retirar');
 var btn3=document.getElementById('Lista de clientes');
@@ -27,43 +28,53 @@ let dni = prompt('Introduce DNI de usted, porfavor');
 var ingreso=0;
 var retiro=0;
 function actualizarCliente(cliente) { 
-    dom.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+    dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
     btn1.addEventListener('click',function() { 
         ingreso = Number(prompt('Introduce cantidad del ingreso'));
         cliente.cantidadDeDinero += ingreso;
-        dom.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+        dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
         })
     btn2.addEventListener('click',function() {
         if (cliente.cantidadDeDinero>=0) {
             retiro=Number(prompt('Introduce el monto del retiro'));
             if (retiro<= cliente.cantidadDeDinero){
                 cliente.cantidadDeDinero -= retiro;
-                dom.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+                dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
             }else if (retiro>cliente.cantidadDeDinero) {
-                dom.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+'no se puede retirar más efectivos';
+                dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+'no se puede retirar más efectivos';
             }else{
-                dom.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+'introduce un número';
+                dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+'introduce un número';
             }
         }else{
-            dom.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+'no se puede retirar más efectivos';
+            dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+'no se puede retirar más efectivos';
         }
     });
  }
 switch (dni) {
     case cliente1.dni:
         actualizarCliente(cliente1);
+        cambioUser(cliente1);
         break;
     case cliente2.dni:
         actualizarCliente(cliente2);
+        cambioUser(cliente2);
         break
     case cliente3.dni:
         actualizarCliente(cliente3);
+        cambioUser(cliente3);
         break
     default:
-        dom.innerHTML+="no existe este client";
+        dom1.innerHTML+="no existe este client";
         break;
 }
 
 btn3.addEventListener('click',function(){
-        dom.innerHTML+="<br>DNI: "+cliente1.dni+"</br>DNI: "+cliente2.dni+"</br>DNI: "+cliente3.dni+"</br>";
+    dom2.innerHTML="DNI: "+cliente1.dni+"</br>DNI: "+cliente2.dni+"</br>DNI: "+cliente3.dni+"</br>";
 });
+function cambioUser(cliente) { 
+    btn4.addEventListener('click',function(){
+        if (dni==cliente.dni) {
+            dom1.innerHTML=cliente.dni+'<br>'+cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+        }
+    });
+ }
