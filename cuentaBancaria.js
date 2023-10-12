@@ -53,15 +53,12 @@ function actualizarCliente(cliente) {
 switch (dni) {
     case cliente1.dni:
         actualizarCliente(cliente1);
-        cambioUser(cliente1);
         break;
     case cliente2.dni:
         actualizarCliente(cliente2);
-        cambioUser(cliente2);
         break
     case cliente3.dni:
         actualizarCliente(cliente3);
-        cambioUser(cliente3);
         break
     default:
         dom1.innerHTML+="no existe este client";
@@ -71,10 +68,26 @@ switch (dni) {
 btn3.addEventListener('click',function(){
     dom2.innerHTML="DNI: "+cliente1.dni+"</br>DNI: "+cliente2.dni+"</br>DNI: "+cliente3.dni+"</br>";
 });
+
 function cambioUser(cliente) { 
-    btn4.addEventListener('click',function(){
-        if (dni==cliente.dni) {
-            dom1.innerHTML=cliente.dni+'<br>'+cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
-        }
-    });
+    if (dni==cliente.dni) {
+        dom1.innerHTML=cliente.dni+'<br>'+cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+    }
  }
+ btn4.addEventListener('click',function(){
+    dni=prompt("introduce tu DNI");
+    switch (dni) {
+        case cliente1.dni:
+            cambioUser(cliente1);
+            break;
+        case cliente2.dni:
+            cambioUser(cliente2);
+            break
+        case cliente3.dni:
+            cambioUser(cliente3);
+            break
+        default:
+            dom1.innerHTML+="no existe este client";
+            break;
+    }
+});
