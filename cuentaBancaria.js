@@ -61,14 +61,14 @@ switch (dni) {
         actualizarCliente(cliente3);
         break
     default:
-        dom1.innerHTML+="no existe este client";
+        dom1.innerHTML+="no existe este cliente";
         break;
 }
 var array=Array(cliente1,cliente2,cliente3);
 btn3.addEventListener('click',function(){
-    for (let i = 0; i < array.length; i++) {
-        dom2.innerHTML+="DNI: "+array[i].dni+"</br>";
-    }
+    array.forEach(cliente => {
+        dom2.innerHTML+="DNI: "+cliente.dni+"</br>";
+    });
 });
 
 function cambioUser(cliente) { 
@@ -78,32 +78,21 @@ function cambioUser(cliente) {
  }
  btn4.addEventListener('click',function(){
     dni=prompt("introduce tu DNI");
-    switch (dni) {
-        case cliente1.dni:
-            cambioUser(cliente1);
-            break;
-        case cliente2.dni:
-            cambioUser(cliente2);
-            break
-        case cliente3.dni:
-            cambioUser(cliente3);
-            break
-        default:
-            dom1.innerHTML+="no existe este client";
-            break;
-    }
+    array.forEach(Element => {
+        cambioUser(Element);
+    });
 });
 
 btn5.addEventListener("click", function() {
     let dni=prompt("introduce tu DNI");
     let nombre=prompt("introduce tu nombre");
     let apellido=prompt("introduce tu apellido");
-    let saldo=prompt("introduce tu saldo inicial");
+    let saldo=Number(prompt("introduce tu saldo inicial"));
     let cliente={
         dni:dni,
         nombre:nombre,
         apellido:apellido,
-        saldo:saldo,
+        cantidadDeDinero:saldo,
     };
     array.push(cliente);
 });
