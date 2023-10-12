@@ -64,9 +64,11 @@ switch (dni) {
         dom1.innerHTML+="no existe este client";
         break;
 }
-
+var array=Array(cliente1,cliente2,cliente3);
 btn3.addEventListener('click',function(){
-    dom2.innerHTML="DNI: "+cliente1.dni+"</br>DNI: "+cliente2.dni+"</br>DNI: "+cliente3.dni+"</br>";
+    for (let i = 0; i < array.length; i++) {
+        dom2.innerHTML+="DNI: "+array[i].dni+"</br>";
+    }
 });
 
 function cambioUser(cliente) { 
@@ -90,4 +92,18 @@ function cambioUser(cliente) {
             dom1.innerHTML+="no existe este client";
             break;
     }
+});
+
+btn5.addEventListener("click", function() {
+    let dni=prompt("introduce tu DNI");
+    let nombre=prompt("introduce tu nombre");
+    let apellido=prompt("introduce tu apellido");
+    let saldo=prompt("introduce tu saldo inicial");
+    let cliente={
+        dni:dni,
+        nombre:nombre,
+        apellido:apellido,
+        saldo:saldo,
+    };
+    array.push(cliente);
 });
