@@ -28,18 +28,30 @@ let dni = prompt('Introduce DNI de usted, porfavor');
 var ingreso=0;
 var retiro=0;
 function actualizarCliente(cliente) { 
-    dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+    resultado='';
+    for (const key in cliente) {
+        resultado=resultado+key+': '+cliente[key]+'<br>';
+    }
+    dom1.innerHTML=resultado
     btn1.addEventListener('click',function() { 
         ingreso = Number(prompt('Introduce cantidad del ingreso'));
         cliente.cantidadDeDinero += ingreso;
-        dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+        resultado='';
+        for (const key in cliente) {
+            resultado=resultado+key+': '+cliente[key]+'<br>';
+        }
+        dom1.innerHTML=resultado
         })
     btn2.addEventListener('click',function() {
         if (cliente.cantidadDeDinero>=0) {
             retiro=Number(prompt('Introduce el monto del retiro'));
             if (retiro<= cliente.cantidadDeDinero){
                 cliente.cantidadDeDinero -= retiro;
-                dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+                resultado='';
+                for (const key in cliente) {
+                    resultado=resultado+key+': '+cliente[key]+'<br>';
+                }
+                dom1.innerHTML=resultado
             }else if (retiro>cliente.cantidadDeDinero) {
                 dom1.innerHTML=cliente.nombre+'<br>'+cliente.apellido+'<br>'+'no se puede retirar más efectivos';
             }else{
@@ -73,7 +85,11 @@ btn3.addEventListener('click',function(){
 
 function cambioUser(cliente) { 
     if (dni==cliente.dni) {
-        dom1.innerHTML=cliente.dni+'<br>'+cliente.nombre+'<br>'+cliente.apellido+'<br>'+cliente.cantidadDeDinero;
+        resultado='';
+        for (const key in cliente) {
+            resultado=resultado+key+': '+cliente[key]+'<br>';
+        }
+        dom1.innerHTML=resultado
     }
  }
  btn4.addEventListener('click',function(){
@@ -84,15 +100,11 @@ function cambioUser(cliente) {
 });
 
 btn5.addEventListener("click", function() {
-    let dni=prompt("introduce tu DNI");
-    let nombre=prompt("introduce tu nombre");
-    let apellido=prompt("introduce tu apellido");
-    let saldo=Number(prompt("introduce tu saldo inicial"));
     let cliente={
-        dni:dni,
-        nombre:nombre,
-        apellido:apellido,
-        cantidadDeDinero:saldo,
+        dni:prompt("introduce tu DNI"),
+        nombre:prompt("introduce tu nombre"),
+        apellido:prompt("introduce tu apellido"),
+        cantidadDeDinero:Number(prompt("introduce tu saldo inicial")),
     };
     array.push(cliente);
 });
