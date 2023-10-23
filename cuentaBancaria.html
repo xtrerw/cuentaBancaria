@@ -5,14 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        background: burlywood;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+    body div {
+        display: flex;
+        gap: 1rem;
+    }
+    button  {
+        width: 100px;
+        height: 40px;
+        border-radius: 1rem;
+        border: 0;
+        box-shadow: 5px 5px 5px 5px black;
+    }
+</style>
 <body>
     <h2 class="informationDelCliente"></h2>
     <h2 class="informationDeTodo"></h2>
-    <button id="ingresar">ingreso</button>
-    <button id="retirar">retirada</button>
-    <button id="Lista de clientes">Lista de clientes</button>
-    <button id="Cambio de usuario">Cambio de usuario</button>
-    <button id="Agregar cliente">Agregar cliente</button>
+    <div>
+        <button id="ingresar">ingreso</button>
+        <button id="retirar">retirada</button>
+        <button id="Lista de clientes">Lista de clientes</button>
+        <button id="Cambio de usuario">Cambio de usuario</button>
+        <button id="Agregar cliente">Agregar cliente</button>
+    </div>
+    
 </body>
 <script type="text/javascript" src="cuentaBancaria.js"></script>
 </html>
