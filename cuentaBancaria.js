@@ -78,9 +78,11 @@ switch (dni) {
 }
 var array=Array(cliente1,cliente2,cliente3);
 btn3.addEventListener('click',function(){
+    str='';
     array.forEach(cliente => {
-        dom2.innerHTML+="DNI: "+cliente.dni+"</br>";
+        str+="DNI: "+cliente.dni+"</br>";
     });
+    dom2.innerHTML=str;
 });
 
 function cambioUser(cliente) { 
